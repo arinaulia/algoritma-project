@@ -1,0 +1,82 @@
+
+saldo = 0
+
+def menu():
+    print("="*40)
+    print("=== Selamat Datang di ATM Sederhana ====")
+    print("="*40)
+
+    print("1. Cek Saldo")
+    print("2. Tarik Uang")
+    print("3. Setor Uang")
+    print("4. Keluar")
+
+def proses_tarik_uang():
+    global saldo
+    print("ini adalah proes tarik uang")
+    print("pilihlah nominal yg akan di tarik")
+    print("pilihan")
+    print("1. Rp 50.000")
+    print("2. Rp 100.000")
+    print("3. Rp 150.000")
+    print("4. Rp 200.000")
+    print("pilihan lainnya")
+
+    if plihan_proses_tarik_uang == 4:
+        keluar()
+    elif pilihan_proses_tarik_uang == 1:
+        saldo = saldo - 50000
+        cek_saldo()
+    elif pilihan_proses_tarik_uang == 2:
+        saldo = saldo - 100000
+        cek_saldo()
+    elif pilihan_proses_tarik_uang == 3:
+        saldo = saldo - 150000
+        cek_saldo()
+    elif pilihan_proses_tarik_uang == 4:
+        saldo = saldo - 200000
+        cek_saldo()
+    elif pilihan_proses_tarik_uang == 5:
+        saldo = saldo - int(input())
+    else:
+        print("pilihlah sesuai pilihan yg ada")
+
+def cek_saldo():
+    print("Saldo anda : ", saldo)
+
+def setor_uang():
+    global saldo
+    print("==ini adalah program setor uang==")
+    print("saldo anda : ", saldo)
+    saldo = saldo + int(input())
+    cek_saldo()
+
+def keluar():
+    print("terimakasih sudah menggunakan ATM sederhana kami ^_^ ")
+
+
+
+running = True
+saldo = 1000000
+while(running):
+
+    pin_anda = input("Masukkan PIN anda : ")
+    pin = "1234"
+    if pin_anda == pin:
+        print("pin anda benar")
+
+        menu()
+        pilihan = int(input("Masukkan Menu : "))
+        if pilihan == 4:
+            running = False
+            keluar()
+        elif pilihan == 1:
+            cek_saldo()
+        elif pilihan == 2:
+            proses_tarik_uang()
+        elif pilihan == 3:
+            setor_uang()
+        elif pilihan == 4:
+            keluar()
+    else:
+        print("PIN ANDA SALAH, SILAHKAN MASUKKAN PIN YANG BENAR")
