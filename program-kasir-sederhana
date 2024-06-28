@@ -1,0 +1,63 @@
+# kasir apotek
+def menu():
+    print("---------------------------------------------------")
+    print(" kode obat   | nama obat          | harga ")
+    print(" HS          | Hemaviton Stamina  | Rp.42000 ")
+    print(" DT          | Decolgen tablet    | Rp.6000 ")
+    print(" AM          | Amoxcillin/strip   | Rp.8000 ")
+    print("---------------------------------------------------")
+menu()
+nama = input("masukkan nama pembeli :")
+def garis():
+    print("---------------------------------------------------")
+garis()
+jumlah_beli= int(input(" Masukkan Jumlah Transaksi :"))
+kode_obat=[]
+nama_obat=[]
+masukkan_jumlah=[]
+total_belanja=[]
+uang_bayar=[]
+uang_kembali =[]
+harga=[]
+jumlah=[]
+i = 0
+while i<jumlah_beli:
+    print("Data ke -",i+1)
+    kode_obat.append(input("Masukkan Kode obat :"))
+    masukkan_jumlah.append((input("Masukkan Jumlah Beli :")))
+    if kode_obat[i] == "HS":
+        nama_obat.append("Hemaviton Stamina")
+        harga.append("42000")
+        jumlah.append(masukkan_jumlah[i]*int(42000))
+    elif kode_obat[i] == "DT":
+         nama_obat.append("Decolgen Tablet")
+         harga.append("6000")
+         jumlah.append(masukkan_jumlah[i] * int(6000))
+    elif kode_obat[i] == "AM":
+         nama_obat.append("Amoxcillin/strip")
+         harga.append("8000")
+         jumlah.append(masukkan_jumlah[i] * int(8000))
+    else:
+         nama_obat.append("kode salah")
+         harga.append("0")
+         jumlah.append(masukkan_jumlah[i]*int("0"))
+    i = i+1
+garis()
+print("Nama Pembeli :", nama)
+def menu():
+    print("--------------------------------------------------")
+    print("    No    |   Nama Obat   |   Qty   |   Subtotal  ")
+    print("--------------------------------------------------")
+menu()
+total_belanja=0
+a = 0
+while a<jumlah_beli:
+    total_belanja = total_belanja + jumlah[a]
+    print ("%i   %s    %s    %i   %i"%(a+1, nama_obat[a], harga[a], masukkan_jumlah[a], jumlah[a]))
+    a = a+1
+garis()
+print("            Total Belanjaan Rp.",total_belanja)
+bayar = int(input("Masukkan uang bayar Rp."))
+uang_kembali = bayar-total_belanjaan
+print("            Uang kembali Rp.", uang_kembali)
+garis()
