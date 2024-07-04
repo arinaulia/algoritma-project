@@ -1,0 +1,80 @@
+def tampil_menu():
+    print("Toko Alat Sekolah")
+    print("1. Tampil Data")
+    print("2. Tambah Data")
+    print("3. Edit Data")
+    print("4. Hapus Data")
+    print("5. Keluar")
+
+    pilih = int(input("Masukkan Pilihan Anda :"))
+    return pilih
+
+def tampil_data(data):
+
+    print('Daftar Barang')
+    print('------------------------------------------------------------------------------------------------')
+    print('|  Kode Barang  |            Nama Barang             |     Harga Beli     |     Harga Jual     |')
+    print('------------------------------------------------------------------------------------------------')
+
+    if(len(data)==0):
+        print('|                         Data Barang Masih Kosong                         ')
+    else:
+        for barang in data:
+            print('|',barang["kode"].ljust(13," "),'|',barang["nama"].ljust(33," "),'|',barang["harga_beli"].center(18," "),'|',barang["harga_jual"].center(18," "),'|',)
+    print('------------------------------------------------------------------------------------------------')
+    input("Tekan Enter Untuk Melanjutkan")
+
+def tambah_data():
+    kode_barang = input("Kode Barang : ")
+    nama_barang = input("Nama Barang : ")
+    harga_beli = input("Harga Beli  : ")
+    harga_jual = input("Harga Jual  : ")
+
+    barang = {"kode":kode_barang,"nama":nama_barang,"harga_beli":harga_beli,"harga_jual":harga_jual}
+    return barang
+
+def edit_data(data):
+    tampil_data(data)
+    kode = input("Masukkan kode dari data yang akan Anda Edit :")
+
+    tidak_ketemu = False
+    posisi = -1
+    for barang in data:
+        posisi += 1
+        if(kode == barang["kode"]):
+            ketemu = True
+            data[posisi]["harga_beli"] = input("Harga Beli Baru :")
+            data[posisi]["harga_jual"] = input("Harga Jual Baru :")
+            break
+    if(not ketemu):
+        print("Kode Barang tidak ditemukan")
+
+def hapus_data():
+    kode_barang = input("Kode Barang : ")
+    nama_barang = input("Nama Barang : ")
+    harga_beli = input("Harga Beli   : ")
+    harga_jual = input("Harga Jual   : ")
+
+    barang = {"kode": kode_barang, "nama": nama_barang,"harga_beli": harga_beli, "harga_jual": harga_jual}
+    return barang
+
+#Fungsi
+
+data_barang = []
+pilih = tampil_menu()
+while pilih in [i for i in range(1,5)]:
+    match pilih:
+        case 1:
+            tampil_data(data_barang)
+        case 2:
+            barang = tambah_data()
+            data_barang.append(barang)
+        case 3:
+            edit_data(data_barang)
+        case 4:
+            barang = hapus_data()
+            data_barang.remove(barang)
+
+
+
+    pilih = tampil_menu()
